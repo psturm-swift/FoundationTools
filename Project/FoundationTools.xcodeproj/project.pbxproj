@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020B31E31DFE7BD000D8B8CF /* ConcatSequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020B31E21DFE7BD000D8B8CF /* ConcatSequences.swift */; };
+		020B31E51DFE7CCF00D8B8CF /* ConcatSequencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020B31E41DFE7CCF00D8B8CF /* ConcatSequencesTests.swift */; };
 		0270A20E1DFE72C800F3331B /* FoundationTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0270A2041DFE72C700F3331B /* FoundationTools.framework */; };
 		0270A2151DFE72C800F3331B /* FoundationTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 0270A2071DFE72C700F3331B /* FoundationTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02B3D67E1DFE771900F3603E /* Digits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3D67D1DFE771900F3603E /* Digits.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		020B31E21DFE7BD000D8B8CF /* ConcatSequences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcatSequences.swift; path = ../../Sources/ConcatSequences.swift; sourceTree = "<group>"; };
+		020B31E41DFE7CCF00D8B8CF /* ConcatSequencesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcatSequencesTests.swift; path = ../../Tests/ConcatSequencesTests.swift; sourceTree = "<group>"; };
 		0270A2041DFE72C700F3331B /* FoundationTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FoundationTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0270A2071DFE72C700F3331B /* FoundationTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundationTools.h; sourceTree = "<group>"; };
 		0270A2081DFE72C700F3331B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			children = (
 				0270A2141DFE72C800F3331B /* Info.plist */,
 				02B3D67F1DFE77E300F3603E /* DigitsTests.swift */,
+				020B31E41DFE7CCF00D8B8CF /* ConcatSequencesTests.swift */,
 			);
 			path = FoundationToolsTests;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				02B3D67D1DFE771900F3603E /* Digits.swift */,
+				020B31E21DFE7BD000D8B8CF /* ConcatSequences.swift */,
 			);
 			name = Sequences;
 			sourceTree = "<group>";
@@ -210,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020B31E31DFE7BD000D8B8CF /* ConcatSequences.swift in Sources */,
 				02B3D67E1DFE771900F3603E /* Digits.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020B31E51DFE7CCF00D8B8CF /* ConcatSequencesTests.swift in Sources */,
 				02B3D6801DFE77E300F3603E /* DigitsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
