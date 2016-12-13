@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		020B31E31DFE7BD000D8B8CF /* ConcatSequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020B31E21DFE7BD000D8B8CF /* ConcatSequences.swift */; };
 		020B31E51DFE7CCF00D8B8CF /* ConcatSequencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020B31E41DFE7CCF00D8B8CF /* ConcatSequencesTests.swift */; };
+		021506001E00A75D000531AD /* CrossProductSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021505FF1E00A75D000531AD /* CrossProductSequence.swift */; };
+		021506021E00A81B000531AD /* CrossProductSequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021506011E00A81B000531AD /* CrossProductSequenceTests.swift */; };
 		0270A20E1DFE72C800F3331B /* FoundationTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0270A2041DFE72C700F3331B /* FoundationTools.framework */; };
 		0270A2151DFE72C800F3331B /* FoundationTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 0270A2071DFE72C700F3331B /* FoundationTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02B3D67E1DFE771900F3603E /* Digits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3D67D1DFE771900F3603E /* Digits.swift */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		020B31E21DFE7BD000D8B8CF /* ConcatSequences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcatSequences.swift; path = ../../Sources/ConcatSequences.swift; sourceTree = "<group>"; };
 		020B31E41DFE7CCF00D8B8CF /* ConcatSequencesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcatSequencesTests.swift; path = ../../Tests/ConcatSequencesTests.swift; sourceTree = "<group>"; };
+		021505FF1E00A75D000531AD /* CrossProductSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrossProductSequence.swift; path = ../../Sources/CrossProductSequence.swift; sourceTree = "<group>"; };
+		021506011E00A81B000531AD /* CrossProductSequenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrossProductSequenceTests.swift; path = ../../Tests/CrossProductSequenceTests.swift; sourceTree = "<group>"; };
 		0270A2041DFE72C700F3331B /* FoundationTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FoundationTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0270A2071DFE72C700F3331B /* FoundationTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundationTools.h; sourceTree = "<group>"; };
 		0270A2081DFE72C700F3331B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 				0270A2141DFE72C800F3331B /* Info.plist */,
 				02B3D67F1DFE77E300F3603E /* DigitsTests.swift */,
 				020B31E41DFE7CCF00D8B8CF /* ConcatSequencesTests.swift */,
+				021506011E00A81B000531AD /* CrossProductSequenceTests.swift */,
 			);
 			path = FoundationToolsTests;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			children = (
 				02B3D67D1DFE771900F3603E /* Digits.swift */,
 				020B31E21DFE7BD000D8B8CF /* ConcatSequences.swift */,
+				021505FF1E00A75D000531AD /* CrossProductSequence.swift */,
 			);
 			name = Sequences;
 			sourceTree = "<group>";
@@ -160,7 +166,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Patrick Sturm";
 				TargetAttributes = {
 					0270A2031DFE72C700F3331B = {
@@ -216,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				021506001E00A75D000531AD /* CrossProductSequence.swift in Sources */,
 				020B31E31DFE7BD000D8B8CF /* ConcatSequences.swift in Sources */,
 				02B3D67E1DFE771900F3603E /* Digits.swift in Sources */,
 			);
@@ -227,6 +234,7 @@
 			files = (
 				020B31E51DFE7CCF00D8B8CF /* ConcatSequencesTests.swift in Sources */,
 				02B3D6801DFE77E300F3603E /* DigitsTests.swift in Sources */,
+				021506021E00A81B000531AD /* CrossProductSequenceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +267,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -311,6 +320,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
