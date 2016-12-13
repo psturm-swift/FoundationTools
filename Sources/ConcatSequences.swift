@@ -22,15 +22,23 @@
 
 import Foundation
 
-public func concat<S: Sequence, T: Sequence>(sequences s: S, _ t: T) -> AnySequence<S.Iterator.Element>
+public typealias ConcatSequence<S: Sequence, T: Sequence> = UnfoldSequence<S.Iterator.Element, (S.Iterator, T.Iterator)>
+
+public func concat<S: Sequence, T: Sequence>(sequences lhs: S, _ rhs: T) -> ConcatSequence<S, T>
     where S.Iterator.Element==T.Iterator.Element
 {
-    let sequences = [AnySequence(s.makeIterator), AnySequence(t.makeIterator)]
-    return AnySequence(sequences.lazy.flatMap { $0.lazy.map { $0 } })
+    typealias Element = S.Iterator.Element
+    
+    let nextElement = {
+        (state: inout (S.Iterator, T.Iterator)) -> Element? in
+        return state.0.next() ?? state.1.next()
+    }
+    
+    return sequence(state: (lhs.makeIterator(), rhs.makeIterator()), next: nextElement)
 }
 
 infix operator <+>: AdditionPrecedence
-public func <+><S: Sequence, T: Sequence>(lhs: S, rhs: T) -> AnySequence<S.Iterator.Element>
+public func <+><S: Sequence, T: Sequence>(lhs: S, rhs: T) -> ConcatSequence<S, T>
     where S.Iterator.Element==T.Iterator.Element
 {
     return concat(sequences: lhs, rhs)
