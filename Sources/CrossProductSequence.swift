@@ -22,6 +22,35 @@
 
 import Foundation
 
+public struct CrossProductIterator<S: Sequence, T: Sequence>: IteratorProtocol {
+    public typealias Element = (S.Iterator.Element, T.Iterator.Element)
+    
+    public init(s: S, t: T) {
+        self.currentT = t.makeIterator()
+        self.currentS = s.makeIterator()
+        self.elementS = currentS.next()
+        self.makeIteratorOfT = t.makeIterator
+    }
+    
+    public mutating func next() -> Element? {
+        guard let elementS = self.elementS else { return nil }
+        if let elementT = self.currentT.next() {
+            return (elementS, elementT)
+        }
+        else {
+            self.elementS = self.currentS.next()
+            self.currentT = self.makeIteratorOfT()
+            
+            return next()
+        }
+    }
+    
+    let makeIteratorOfT: () -> T.Iterator
+    var currentT: T.Iterator
+    var currentS: S.Iterator
+    var elementS: S.Iterator.Element?
+}
+
 public func crossProduct<S: Sequence, T: Sequence>(ofSequences s: S, _ t: T) -> AnySequence<(S.Iterator.Element, T.Iterator.Element)> {
-    return AnySequence(s.lazy.flatMap { itemOfS in t.lazy.map { itemOfT in (itemOfS, itemOfT) }})
+    return AnySequence({ CrossProductIterator(s: s, t: t) })
 }

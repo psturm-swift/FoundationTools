@@ -41,10 +41,9 @@ class CrossProductSequenceTests: XCTestCase {
 
         let actual = Array(crossProduct(ofSequences: a, b))
         let result = [(4, 1), (4, 2), (5, 1), (5, 2), (6, 1), (6, 2)]
-                
-        for i in 0..<min(actual.count, result.count) {
-            let actualItem = actual[i]
-            let resultItem = result[i]
+        
+        XCTAssertEqual(actual.count, result.count)
+        for (actualItem, resultItem) in zip(actual, result) {
             XCTAssertEqual(resultItem.0, actualItem.0)
             XCTAssertEqual(resultItem.1, actualItem.1)
         }
