@@ -51,7 +51,7 @@ class CrossProductSequenceTests: XCTestCase {
     func testCrossProducOfTwoArrays() {
         let a = [4, 5, 6]
         let b = [1, 2]
-        XCTAssertTrue(equal([(4, 1), (4, 2), (5, 1), (5, 2), (6, 1), (6, 2)], crossProduct(ofSequences: a, b)))
+        XCTAssertTrue(equal([(4, 1), (4, 2), (5, 1), (5, 2), (6, 1), (6, 2)], a <*> b))
     }
     
     func testConcatOperatorHasHigherPrecedenceAsCrossProductOperator() {

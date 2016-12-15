@@ -24,7 +24,7 @@ import Foundation
 
 public typealias ConcatSequence<S: Sequence, T: Sequence> = UnfoldSequence<S.Iterator.Element, (S.Iterator, T.Iterator)>
 
-public func concat<S: Sequence, T: Sequence>(sequences lhs: S, _ rhs: T) -> ConcatSequence<S, T>
+public func concat<S: Sequence, T: Sequence>(_ lhs: S, _ rhs: T) -> ConcatSequence<S, T>
     where S.Iterator.Element==T.Iterator.Element
 {
     typealias Element = S.Iterator.Element
@@ -46,5 +46,5 @@ infix operator <+>: RangeAdditionPrecedence
 public func <+><S: Sequence, T: Sequence>(lhs: S, rhs: T) -> ConcatSequence<S, T>
     where S.Iterator.Element==T.Iterator.Element
 {
-    return concat(sequences: lhs, rhs)
+    return concat(lhs, rhs)
 }
