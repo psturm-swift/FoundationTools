@@ -37,7 +37,12 @@ public func concat<S: Sequence, T: Sequence>(sequences lhs: S, _ rhs: T) -> Conc
     return sequence(state: (lhs.makeIterator(), rhs.makeIterator()), next: nextElement)
 }
 
-infix operator <+>: AdditionPrecedence
+precedencegroup RangeAdditionPrecedence {
+    associativity: left
+    lowerThan: RangeFormationPrecedence
+}
+
+infix operator <+>: RangeAdditionPrecedence
 public func <+><S: Sequence, T: Sequence>(lhs: S, rhs: T) -> ConcatSequence<S, T>
     where S.Iterator.Element==T.Iterator.Element
 {

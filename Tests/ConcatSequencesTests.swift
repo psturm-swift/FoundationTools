@@ -61,4 +61,7 @@ class ConcatSequencesTests: XCTestCase {
         XCTAssertEqual(a + b, Array(c))
     }
     
+    func testRangesCanBeConcatenatedDirectly() {
+        XCTAssertEqual(Array(1...10), Array(1...4 <+> 5...10))
+    }
 }

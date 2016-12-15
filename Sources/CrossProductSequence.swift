@@ -51,6 +51,19 @@ public struct CrossProductIterator<S: Sequence, T: Sequence>: IteratorProtocol {
     var elementS: S.Iterator.Element?
 }
 
-public func crossProduct<S: Sequence, T: Sequence>(ofSequences s: S, _ t: T) -> AnySequence<(S.Iterator.Element, T.Iterator.Element)> {
+public func crossProduct<S: Sequence, T: Sequence>(ofSequences s: S, _ t: T)
+    -> AnySequence<(S.Iterator.Element, T.Iterator.Element)>
+{
     return AnySequence({ CrossProductIterator(s: s, t: t) })
+}
+
+precedencegroup RangeMultiplicationPrecedence {
+    associativity: left
+    lowerThan: RangeFormationPrecedence
+    higherThan: RangeAdditionPrecedence
+}
+
+infix operator <*>: RangeMultiplicationPrecedence
+public func <*><S: Sequence, T: Sequence>(lhs: S, rhs: T) -> AnySequence<(S.Iterator.Element, T.Iterator.Element)> {
+    return crossProduct(ofSequences: lhs, rhs)
 }
