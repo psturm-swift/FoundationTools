@@ -1,0 +1,9 @@
+language: objective-c
+osx_image: xcode8.2
+
+script:
+  - xcodebuild test -project Project/FoundationTools.xcodeproj -scheme FoundationTools
+
+notifications:
+email: true
+
