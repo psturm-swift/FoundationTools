@@ -27,10 +27,8 @@ public typealias ConcatSequence<S: Sequence, T: Sequence> = UnfoldSequence<S.Ite
 public func concat<S: Sequence, T: Sequence>(_ lhs: S, _ rhs: T) -> ConcatSequence<S, T>
     where S.Iterator.Element==T.Iterator.Element
 {
-    typealias Element = S.Iterator.Element
-    
     let nextElement = {
-        (state: inout (S.Iterator, T.Iterator)) -> Element? in
+        (state: inout (S.Iterator, T.Iterator)) -> S.Iterator.Element? in
         return state.0.next() ?? state.1.next()
     }
     
