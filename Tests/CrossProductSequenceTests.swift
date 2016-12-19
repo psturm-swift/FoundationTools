@@ -23,7 +23,7 @@
 import XCTest
 @testable import FoundationTools
 
-class FoundationToolsTests: XCTestCase {
+class CrossProductSequenceTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -35,16 +35,28 @@ class FoundationToolsTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func equal<S: Sequence, T: Sequence>(_ s: S, _ t: T) -> Bool
+        where S.Iterator.Element==(Int,Int), T.Iterator.Element==S.Iterator.Element
+    {
+        let arrayS = Array(s)
+        let arrayT = Array(t)
+        guard arrayS.count == arrayT.count else { return false }
+        for (itemS, itemT) in zip(arrayS, arrayT) {
+            guard itemS.0 == itemT.0 && itemS.1 == itemT.1 else { return false }
         }
+        return true
     }
     
+    func testCrossProducOfTwoArrays() {
+        let a = [4, 5, 6]
+        let b = [1, 2]
+        XCTAssertTrue(equal([(4, 1), (4, 2), (5, 1), (5, 2), (6, 1), (6, 2)], a <*> b))
+    }
+    
+    func testConcatOperatorHasHigherPrecedenceAsCrossProductOperator() {
+        let actual = 1...2 <*> 4...5 <+> 10...11 <*> 40...41
+        let expected = [(1,4),(1,5),(2,4),(2,5),(10,40),(10,41),(11,40),(11,41)]
+        XCTAssertTrue(equal(expected, actual))
+    }
 }
