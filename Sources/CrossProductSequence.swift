@@ -51,8 +51,10 @@ public struct CrossProductIterator<S: Sequence, T: Sequence>: IteratorProtocol {
     var elementS: S.Iterator.Element?
 }
 
+public typealias CrossProductSequence<S: Sequence, T: Sequence> = AnySequence<(S.Iterator.Element, T.Iterator.Element)>
+
 public func crossProduct<S: Sequence, T: Sequence>(_ s: S, _ t: T)
-    -> AnySequence<(S.Iterator.Element, T.Iterator.Element)>
+    -> CrossProductSequence<S, T>
 {
     return AnySequence({ CrossProductIterator(s, t) })
 }
