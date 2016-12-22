@@ -22,14 +22,16 @@
 
 import Foundation
 
-public func min<T: Comparable>(_ lhs: T?, _ rhs: T?) -> T? {
-    guard let _lhs = lhs else { return rhs }
-    guard let _rhs = rhs else { return lhs }
-    return min(_lhs, _rhs)
+public func optionalApply<T>(_ a: T?, _ b: T?, _ op: (T,T)->T) -> T? {
+    guard let _a = a else { return b }
+    guard let _b = b else { return a }
+    return op(_a, _b)
 }
 
-public func max<T: Comparable>(_ lhs: T?, _ rhs: T?) -> T? {
-    guard let _lhs = lhs else { return rhs }
-    guard let _rhs = rhs else { return lhs }
-    return max(_lhs, _rhs)
+public func min<T: Comparable>(_ a: T?, _ b: T?) -> T? {
+    return optionalApply(a, b, min)
+}
+
+public func max<T: Comparable>(_ a: T?, _ b: T?) -> T? {
+    return optionalApply(a, b, max)
 }
