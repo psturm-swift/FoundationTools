@@ -70,4 +70,14 @@ class DigitsTests: XCTestCase {
         XCTAssertEqual(digitsA, digitsB)
     }
     
+    static var allTests : [(String, (DigitsTests) -> () throws -> Void)] {
+        return [
+            ("testDigitsWorksForIntegersBetween0And9", testDigitsWorksForIntegersBetween0And9),
+            ("testDigitsWorksForIntegersLargerThan10AndEndsWithZero", testDigitsWorksForIntegersLargerThan10AndEndsWithZero),
+            ("testDigitsWorksForIntegersLargerThan10AndEndsNotWithZero", testDigitsWorksForIntegersLargerThan10AndEndsNotWithZero),
+            ("testDigitsWorksForNegativeIntegers", testDigitsWorksForNegativeIntegers),
+            ("testDigitsWorksForUnsignedIntegers", testDigitsWorksForUnsignedIntegers),
+            ("testLazySequenceCreatedByDigitsOfIsReusable", testLazySequenceCreatedByDigitsOfIsReusable)
+        ]
+    }
 }

@@ -64,4 +64,13 @@ class ConcatSequencesTests: XCTestCase {
     func testRangesCanBeConcatenatedDirectly() {
         XCTAssertEqual(Array(1...10), Array(1...4 <+> 5...10))
     }
+    
+    static var allTests : [(String, (ConcatSequencesTests) -> () throws -> Void)] {
+        return [
+            ("testTwoArraysCanBeConcatenatedLazily", testTwoArraysCanBeConcatenatedLazily),
+            ("testTwoArraysCanBeConcatenatedLazilyIfOneArrayIsEmpty", testTwoArraysCanBeConcatenatedLazilyIfOneArrayIsEmpty),
+            ("testConcatenationCanBeReused", testConcatenationCanBeReused),
+            ("testRangesCanBeConcatenatedDirectly", testRangesCanBeConcatenatedDirectly)
+        ]
+    }
 }

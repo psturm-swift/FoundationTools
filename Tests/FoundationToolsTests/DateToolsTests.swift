@@ -20,9 +20,11 @@
  THE SOFTWARE.
  */
 
+import Foundation
 import XCTest
 @testable import FoundationTools
 
+@available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
 class DateToolsTests: XCTestCase {
     
     func date(fromString dateAsString: String) -> Date {
@@ -83,4 +85,14 @@ class DateToolsTests: XCTestCase {
         XCTAssertEqual(self.date(fromString: "2016-12-23T21:00:00+00:00"), dateInterval.end)
         XCTAssertEqual(dateInterval.start, closestDate)
     }
+    
+    static var allTests : [(String, (DateToolsTests) -> () throws -> Void)] {
+        return [
+            ("testTimelineInMinutesForDateWithinInterval", testTimelineInMinutesForDateWithinInterval),
+            ("testTimelineInMinutesForDateOnIntervalBound", testTimelineInMinutesForDateOnIntervalBound),
+            ("testTimelineInHoursForDateWithinInterval", testTimelineInHoursForDateWithinInterval),
+            ("testTimelineInHoursForDateOnIntervalBound", testTimelineInHoursForDateOnIntervalBound)
+        ]
+    }
+    
 }

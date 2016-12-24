@@ -23,7 +23,7 @@
 import XCTest
 @testable import FoundationTools
 
-class OptionalsTests: XCTestCase {
+class OptionalToolsTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -110,4 +110,16 @@ class OptionalsTests: XCTestCase {
         
         XCTAssertNil(max(a, b))
     }
+    
+    static var allTests : [(String, (OptionalToolsTests) -> () throws -> Void)] {
+        return [
+            ("testIfMinWorksForTwoOptionalsWhichAreNotNil", testIfMinWorksForTwoOptionalsWhichAreNotNil),
+            ("testIfMinWorksForTwoOptionalsIfOneIsNil", testIfMinWorksForTwoOptionalsIfOneIsNil),
+            ("testIfMinWorksForTwoOptionalsIfBothAreNil", testIfMinWorksForTwoOptionalsIfBothAreNil),
+            ("testIfMaxWorksForTwoOptionalsWhichAreNotNil", testIfMaxWorksForTwoOptionalsWhichAreNotNil),
+            ("testIfMaxWorksForTwoOptionalsIfOneIsNil", testIfMaxWorksForTwoOptionalsIfOneIsNil),
+            ("testIfMaxWorksForTwoOptionalsIfBothAreNil", testIfMaxWorksForTwoOptionalsIfBothAreNil)
+        ]
+    }
+    
 }

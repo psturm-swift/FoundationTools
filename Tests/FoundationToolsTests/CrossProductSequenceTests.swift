@@ -59,4 +59,11 @@ class CrossProductSequenceTests: XCTestCase {
         let expected = [(1,4),(1,5),(2,4),(2,5),(10,40),(10,41),(11,40),(11,41)]
         XCTAssertTrue(equal(expected, actual))
     }
+    
+    static var allTests : [(String, (CrossProductSequenceTests) -> () throws -> Void)] {
+        return [
+            ("testCrossProducOfTwoArrays", testCrossProducOfTwoArrays),
+            ("testConcatOperatorHasHigherPrecedenceAsCrossProductOperator", testConcatOperatorHasHigherPrecedenceAsCrossProductOperator)
+        ]
+    }
 }
