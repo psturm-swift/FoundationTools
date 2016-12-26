@@ -65,7 +65,7 @@ public enum Timeline {
         }
     }
     
-    public func dateInterval(for date: Date) -> DateInterval {
+    public func interval(for date: Date) -> DateInterval {
         let components = Calendar.current.dateComponents(self.calendarComponents, from: date)
         let start = Calendar.current.date(from: components)!
         let end = Calendar.current.date(byAdding: self.calendarComponent, value: 1, to: start)!
@@ -73,8 +73,8 @@ public enum Timeline {
         return DateInterval(start: start, end: end)
     }
     
-    public func closestDate(for date: Date) -> Date {
-        let interval = self.dateInterval(for: date)
+    public func closest(to date: Date) -> Date {
+        let interval = self.interval(for: date)
         let start = interval.start.timeIntervalSince1970
         let end = interval.end.timeIntervalSince1970
         let value = date.timeIntervalSince1970

@@ -48,8 +48,8 @@ class DateToolsTests: XCTestCase {
     
     func testTimelineInMinutesForDateWithinInterval() {
         let date = self.date(fromString: "2016-12-23T20:09:56+00:00")
-        let dateInterval = Timeline.minutes.dateInterval(for: date)
-        let closestDate = Timeline.minutes.closestDate(for: date)
+        let dateInterval = Timeline.minutes.interval(for: date)
+        let closestDate = Timeline.minutes.closest(to: date)
         
         XCTAssertEqual(self.date(fromString: "2016-12-23T20:09:00+00:00"), dateInterval.start)
         XCTAssertEqual(self.date(fromString: "2016-12-23T20:10:00+00:00"), dateInterval.end)
@@ -58,8 +58,8 @@ class DateToolsTests: XCTestCase {
 
     func testTimelineInMinutesForDateOnIntervalBound() {
         let date = self.date(fromString: "2016-12-23T20:09:00+00:00")
-        let dateInterval = Timeline.minutes.dateInterval(for: date)
-        let closestDate = Timeline.minutes.closestDate(for: date)
+        let dateInterval = Timeline.minutes.interval(for: date)
+        let closestDate = Timeline.minutes.closest(to: date)
         
         XCTAssertEqual(self.date(fromString: "2016-12-23T20:09:00+00:00"), dateInterval.start)
         XCTAssertEqual(self.date(fromString: "2016-12-23T20:10:00+00:00"), dateInterval.end)
@@ -68,8 +68,8 @@ class DateToolsTests: XCTestCase {
 
     func testTimelineInHoursForDateWithinInterval() {
         let date = self.date(fromString: "2016-12-23T20:09:56+00:00")
-        let dateInterval = Timeline.hours.dateInterval(for: date)
-        let closestDate = Timeline.hours.closestDate(for: date)
+        let dateInterval = Timeline.hours.interval(for: date)
+        let closestDate = Timeline.hours.closest(to: date)
         
         XCTAssertEqual(self.date(fromString: "2016-12-23T20:00:00+00:00"), dateInterval.start)
         XCTAssertEqual(self.date(fromString: "2016-12-23T21:00:00+00:00"), dateInterval.end)
@@ -78,8 +78,8 @@ class DateToolsTests: XCTestCase {
     
     func testTimelineInHoursForDateOnIntervalBound() {
         let date = self.date(fromString: "2016-12-23T20:09:00+00:00")
-        let dateInterval = Timeline.hours.dateInterval(for: date)
-        let closestDate = Timeline.hours.closestDate(for: date)
+        let dateInterval = Timeline.hours.interval(for: date)
+        let closestDate = Timeline.hours.closest(to: date)
         
         XCTAssertEqual(self.date(fromString: "2016-12-23T20:00:00+00:00"), dateInterval.start)
         XCTAssertEqual(self.date(fromString: "2016-12-23T21:00:00+00:00"), dateInterval.end)
