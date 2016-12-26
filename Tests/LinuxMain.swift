@@ -6,5 +6,6 @@ XCTMain([
      testCase(CrossProductSequenceTests.allTests),
      testCase(DateToolsTests.allTests),
      testCase(DigitsTests.allTests),
-     testCase(OptionalToolsTests.allTests)
+     testCase(OptionalToolsTests.allTests),
+     testCase(DictionaryToolsTests.allTests)
 ])
