@@ -22,13 +22,17 @@
 
 import Foundation
 
+public func dictionaryMap<Ks : Hashable, Vs, Kt : Hashable, Vt>(_ dictionary: [Ks:Vs], transform: (Ks, Vs)->(Kt, Vt)) -> [Kt:Vt] {
+    var result: [Kt:Vt] = [:]
+    for (key, value) in dictionary {
+        let (keyTransformed, valueTransformed) = transform(key, value)
+        result.updateValue(valueTransformed, forKey: keyTransformed)
+    }
+    return result
+}
+
 public extension Dictionary {
-    func map<K:Hashable,V>(_ transform: (Key,Value)->(K,V)) -> [K:V] {
-        var result: [K:V] = [:]
-        for (key, value) in self {
-            let (keyTransformed, valueTransformed) = transform(key, value)
-            result.updateValue(valueTransformed, forKey: keyTransformed)
-        }
-        return result
+    func map<K:Hashable, V>(_ transform: (Key, Value)->(K, V)) -> [K:V] {
+        return dictionaryMap(self, transform: transform)
     }
 }
