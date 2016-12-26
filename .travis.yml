@@ -3,6 +3,8 @@ osx_image: xcode8.2
 
 script:
   - xcodebuild test -project Project/FoundationTools.xcodeproj -scheme FoundationTools
+  - swift build
+  - swift test
 
 notifications:
 email: true
