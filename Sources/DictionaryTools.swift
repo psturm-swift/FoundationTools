@@ -31,8 +31,18 @@ public func dictionaryMap<Ks : Hashable, Vs, Kt : Hashable, Vt>(_ dictionary: [K
     return result
 }
 
+public func dictionaryInverted<K : Hashable, V: Hashable>(_ dictionary: [K:V]) -> [V:K] {
+    return dictionaryMap(dictionary) { (key, value) in (value, key) }
+}
+
 public extension Dictionary {
     func map<K:Hashable, V>(_ transform: (Key, Value)->(K, V)) -> [K:V] {
         return dictionaryMap(self, transform: transform)
+    }
+}
+
+public extension Dictionary where Value: Hashable {
+    func inverted() -> [Value:Key] {
+        return dictionaryInverted(self)
     }
 }

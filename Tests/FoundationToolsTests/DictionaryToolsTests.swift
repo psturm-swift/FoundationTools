@@ -37,7 +37,7 @@ class DictionaryToolsTests: XCTestCase {
     
     func testIfANoneEmptyDictionaryCanBeMappedIntoDifferentOneByChangingRolesBetweenValueAndKey() {
         let dictionary = [ 1 : "10", 2 : "20", 3 : "30", 4 : "40" ]
-        let invertedDictionary = dictionary.map { (key, value) in (value, key) }
+        let invertedDictionary = dictionary.inverted()
 
         XCTAssertEqual([ "10" : 1, "20" : 2, "30" : 3, "40" : 4 ], invertedDictionary)
     }
