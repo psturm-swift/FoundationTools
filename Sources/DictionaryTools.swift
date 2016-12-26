@@ -22,7 +22,7 @@
 
 import Foundation
 
-extension Dictionary {
+public extension Dictionary {
     func map<K:Hashable,V>(_ transform: (Key,Value)->(K,V)) -> [K:V] {
         var result: [K:V] = [:]
         for (key, value) in self {
