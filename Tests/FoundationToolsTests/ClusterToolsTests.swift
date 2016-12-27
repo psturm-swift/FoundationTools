@@ -53,10 +53,19 @@ class ClusterToolsTests: XCTestCase {
         }
     }
 
+    func testIfThinOutCanRemoveEvenIntegers() {
+        let input = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        let similarity = { (a: Int, b: Int)->Bool in abs(a-b) <= 1 }
+        let thinned = thinOut(sequence: input, similarity: similarity)
+        
+        XCTAssertEqual(input.filter { $0 % 2 == 1 }, thinned)
+    }
+    
     static var allTests : [(String, (ClusterToolsTests) -> () throws -> Void)] {
         return [
             ("testIfAnEmptySequenceWillProduceNoCluster", testIfAnEmptySequenceWillProduceNoCluster),
-            ("testIfIntegersCanBeClusteredByTheirRightMostDigit", testIfIntegersCanBeClusteredByTheirRightMostDigit)
+            ("testIfIntegersCanBeClusteredByTheirRightMostDigit", testIfIntegersCanBeClusteredByTheirRightMostDigit),
+            ("testIfThinOutCanRemoveEvenIntegers", testIfThinOutCanRemoveEvenIntegers)
         ]
     }
 }

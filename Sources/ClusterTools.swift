@@ -46,3 +46,15 @@ public func simpleClustering<S: Sequence>(sequence: S, similarity: (S.Iterator.E
 
     return clusters
 }
+
+public func thinOut<S: Sequence>(sequence: S, similarity: (S.Iterator.Element, S.Iterator.Element)->Bool) -> [S.Iterator.Element] {
+    var result: [S.Iterator.Element] = []
+    
+    for value in sequence {
+        if !result.contains(where: { similarity($0, value) }) {
+            result.append(value)
+        }
+    }
+    
+    return result
+}
