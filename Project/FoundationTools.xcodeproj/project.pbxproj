@@ -23,6 +23,8 @@
 		0270A20E1DFE72C800F3331B /* FoundationTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0270A2041DFE72C700F3331B /* FoundationTools.framework */; };
 		0270A2151DFE72C800F3331B /* FoundationTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 0270A2071DFE72C700F3331B /* FoundationTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		028014691E0DC17000A8A19C /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028014681E0DC17000A8A19C /* DateTools.swift */; };
+		028882021E12E83C00E95C1F /* UnitFraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028882011E12E83C00E95C1F /* UnitFraction.swift */; };
+		028882041E12E86500E95C1F /* UnitLoudness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028882031E12E86500E95C1F /* UnitLoudness.swift */; };
 		02A8CA7B1E09019A0001FBF2 /* OptionalTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A8CA7A1E09019A0001FBF2 /* OptionalTools.swift */; };
 		02B3D67E1DFE771900F3603E /* Digits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3D67D1DFE771900F3603E /* Digits.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		0270A20D1DFE72C800F3331B /* FoundationToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoundationToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0270A2141DFE72C800F3331B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		028014681E0DC17000A8A19C /* DateTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTools.swift; path = ../../Sources/DateTools.swift; sourceTree = "<group>"; };
+		028882011E12E83C00E95C1F /* UnitFraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnitFraction.swift; path = ../../Sources/UnitFraction.swift; sourceTree = "<group>"; };
+		028882031E12E86500E95C1F /* UnitLoudness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnitLoudness.swift; path = ../../Sources/UnitLoudness.swift; sourceTree = "<group>"; };
 		02A8CA7A1E09019A0001FBF2 /* OptionalTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionalTools.swift; path = ../../Sources/OptionalTools.swift; sourceTree = "<group>"; };
 		02B3D67D1DFE771900F3603E /* Digits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Digits.swift; path = ../../Sources/Digits.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +129,7 @@
 			children = (
 				02A8CA791E09016E0001FBF2 /* Helper */,
 				02B3D67C1DFE76FD00F3603E /* Sequences */,
+				028882001E12E80E00E95C1F /* Units */,
 				0270A2071DFE72C700F3331B /* FoundationTools.h */,
 				0270A2081DFE72C700F3331B /* Info.plist */,
 			);
@@ -139,6 +144,15 @@
 				0270A2141DFE72C800F3331B /* Info.plist */,
 			);
 			path = FoundationToolsTests;
+			sourceTree = "<group>";
+		};
+		028882001E12E80E00E95C1F /* Units */ = {
+			isa = PBXGroup;
+			children = (
+				028882011E12E83C00E95C1F /* UnitFraction.swift */,
+				028882031E12E86500E95C1F /* UnitLoudness.swift */,
+			);
+			name = Units;
 			sourceTree = "<group>";
 		};
 		02A8CA791E09016E0001FBF2 /* Helper */ = {
@@ -283,7 +297,9 @@
 				0217FE181E1100DD005223B5 /* DictionaryTools.swift in Sources */,
 				020B31E31DFE7BD000D8B8CF /* ConcatSequences.swift in Sources */,
 				0217FE261E12738E005223B5 /* ClusterTools.swift in Sources */,
+				028882021E12E83C00E95C1F /* UnitFraction.swift in Sources */,
 				0217FE221E12700B005223B5 /* PeriodicSequence.swift in Sources */,
+				028882041E12E86500E95C1F /* UnitLoudness.swift in Sources */,
 				02B3D67E1DFE771900F3603E /* Digits.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
