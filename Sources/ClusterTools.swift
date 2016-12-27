@@ -31,8 +31,7 @@ public func clusterId<T>(for value: T, in clusters: [[T]], predicate: (T,T)->Boo
     })
 }
 
-public func simpleClustering<S: Sequence>(sequence: S, similarity: (S.Iterator.Element, S.Iterator.Element)->Bool) -> [[S.Iterator.Element]]
-{
+public func simpleClustering<S: Sequence>(sequence: S, similarity: (S.Iterator.Element, S.Iterator.Element)->Bool) -> [[S.Iterator.Element]] {
     var clusters: [[S.Iterator.Element]] = []
     
     for value in sequence {
