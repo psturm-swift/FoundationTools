@@ -11,6 +11,8 @@
 		021506001E00A75D000531AD /* CrossProductSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021505FF1E00A75D000531AD /* CrossProductSequence.swift */; };
 		0217FE181E1100DD005223B5 /* DictionaryTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217FE171E1100DD005223B5 /* DictionaryTools.swift */; };
 		0217FE1C1E11018E005223B5 /* DictionaryToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217FE1B1E11018E005223B5 /* DictionaryToolsTests.swift */; };
+		0217FE221E12700B005223B5 /* PeriodicSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217FE211E12700B005223B5 /* PeriodicSequence.swift */; };
+		0217FE241E127036005223B5 /* PeriodicSequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217FE231E127036005223B5 /* PeriodicSequenceTests.swift */; };
 		025435201E0F37AE00538E30 /* ConcatSequencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0254351B1E0F37AE00538E30 /* ConcatSequencesTests.swift */; };
 		025435211E0F37AE00538E30 /* CrossProductSequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0254351C1E0F37AE00538E30 /* CrossProductSequenceTests.swift */; };
 		025435221E0F37AE00538E30 /* DateToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0254351D1E0F37AE00538E30 /* DateToolsTests.swift */; };
@@ -38,6 +40,8 @@
 		021505FF1E00A75D000531AD /* CrossProductSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrossProductSequence.swift; path = ../../Sources/CrossProductSequence.swift; sourceTree = "<group>"; };
 		0217FE171E1100DD005223B5 /* DictionaryTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryTools.swift; path = ../../Sources/DictionaryTools.swift; sourceTree = "<group>"; };
 		0217FE1B1E11018E005223B5 /* DictionaryToolsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryToolsTests.swift; path = ../../Tests/FoundationToolsTests/DictionaryToolsTests.swift; sourceTree = "<group>"; };
+		0217FE211E12700B005223B5 /* PeriodicSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodicSequence.swift; path = ../../Sources/PeriodicSequence.swift; sourceTree = "<group>"; };
+		0217FE231E127036005223B5 /* PeriodicSequenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodicSequenceTests.swift; path = ../../Tests/FoundationToolsTests/PeriodicSequenceTests.swift; sourceTree = "<group>"; };
 		0254351B1E0F37AE00538E30 /* ConcatSequencesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcatSequencesTests.swift; path = ../../Tests/FoundationToolsTests/ConcatSequencesTests.swift; sourceTree = "<group>"; };
 		0254351C1E0F37AE00538E30 /* CrossProductSequenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrossProductSequenceTests.swift; path = ../../Tests/FoundationToolsTests/CrossProductSequenceTests.swift; sourceTree = "<group>"; };
 		0254351D1E0F37AE00538E30 /* DateToolsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateToolsTests.swift; path = ../../Tests/FoundationToolsTests/DateToolsTests.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				0254351C1E0F37AE00538E30 /* CrossProductSequenceTests.swift */,
 				0254351E1E0F37AE00538E30 /* DigitsTests.swift */,
 				0217FE1B1E11018E005223B5 /* DictionaryToolsTests.swift */,
+				0217FE231E127036005223B5 /* PeriodicSequenceTests.swift */,
 			);
 			name = Sequences;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				021505FF1E00A75D000531AD /* CrossProductSequence.swift */,
 				02B3D67D1DFE771900F3603E /* Digits.swift */,
 				0217FE171E1100DD005223B5 /* DictionaryTools.swift */,
+				0217FE211E12700B005223B5 /* PeriodicSequence.swift */,
 			);
 			name = Sequences;
 			sourceTree = "<group>";
@@ -270,6 +276,7 @@
 				021506001E00A75D000531AD /* CrossProductSequence.swift in Sources */,
 				0217FE181E1100DD005223B5 /* DictionaryTools.swift in Sources */,
 				020B31E31DFE7BD000D8B8CF /* ConcatSequences.swift in Sources */,
+				0217FE221E12700B005223B5 /* PeriodicSequence.swift in Sources */,
 				02B3D67E1DFE771900F3603E /* Digits.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0217FE241E127036005223B5 /* PeriodicSequenceTests.swift in Sources */,
 				025435221E0F37AE00538E30 /* DateToolsTests.swift in Sources */,
 				0217FE1C1E11018E005223B5 /* DictionaryToolsTests.swift in Sources */,
 				025435201E0F37AE00538E30 /* ConcatSequencesTests.swift in Sources */,

@@ -7,5 +7,6 @@ XCTMain([
      testCase(DateToolsTests.allTests),
      testCase(DigitsTests.allTests),
      testCase(OptionalToolsTests.allTests),
-     testCase(DictionaryToolsTests.allTests)
+     testCase(DictionaryToolsTests.allTests),
+     testCase(PeriodicSequenceTests.allTests)
 ])
