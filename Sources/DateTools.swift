@@ -23,7 +23,7 @@
 import Foundation
 
 @available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
-public enum Timeline {
+public enum TimelineGranularity {
     case seconds
     case minutes
     case hours
@@ -61,25 +61,62 @@ public enum Timeline {
         case .months:
             return Set<Calendar.Component>(arrayLiteral: .month, .year)
         case .years:
-            return  Set<Calendar.Component>(arrayLiteral: .year)
+            return Set<Calendar.Component>(arrayLiteral: .year)
         }
     }
     
-    public func interval(for date: Date) -> DateInterval {
-        let components = Calendar.current.dateComponents(self.calendarComponents, from: date)
-        let start = Calendar.current.date(from: components)!
-        let end = Calendar.current.date(byAdding: self.calendarComponent, value: 1, to: start)!
-        
-        return DateInterval(start: start, end: end)
-    }
-    
-    public func closest(to date: Date) -> Date {
-        let interval = self.interval(for: date)
-        let start = interval.start.timeIntervalSince1970
-        let end = interval.end.timeIntervalSince1970
-        let value = date.timeIntervalSince1970
-        
-        return value - start <= end - value ? interval.start : interval.end
+    var coarser: TimelineGranularity? {
+        switch self {
+        case .seconds:
+            return .minutes
+        case .minutes:
+            return .hours
+        case .hours:
+            return .days
+        case .days:
+            return .months
+        case .months:
+            return .years
+        case .years:
+            return nil
+        }
     }
 }
 
+@available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
+public struct Timeline {
+    public init(granularity: TimelineGranularity, calendar: Calendar = Calendar.current) {
+        self.calendar = calendar
+        self.granularity = granularity
+    }
+
+    public func dateInterval(for date: Date) -> DateInterval? {
+        return calendar.dateInterval(of: granularity.calendarComponent, for: date)
+    }
+    
+    public func date(after date: Date, first: Int, increment: Int) -> Date? {
+        guard let normalizedDate = dateInterval(for: date)?.end else { return nil }
+        
+        let component = granularity.calendarComponent
+        let value = calendar.component(component, from: normalizedDate)
+        
+        if value < first {
+            return calendar.date(bySetting: component, value: first, of: normalizedDate)!
+        }
+        else {
+            let nextValue = smallestValue(divisibleBy: increment, largerThanOrEqualTo: value - first) + first
+            
+            if let nextDate = calendar.date(bySetting: component, value: nextValue, of: normalizedDate) {
+                return nextDate
+            }
+            else {
+                guard let coarserComponent = granularity.coarser?.calendarComponent else { return nil }
+                guard let nextStart = calendar.dateInterval(of: coarserComponent, for: date)?.end else { return nil }
+                return calendar.date(bySetting: component, value: first, of: nextStart)
+            }
+        }
+    }
+    
+    private let calendar: Calendar
+    private let granularity: TimelineGranularity
+}

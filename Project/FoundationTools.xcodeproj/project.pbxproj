@@ -25,6 +25,7 @@
 		028014691E0DC17000A8A19C /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028014681E0DC17000A8A19C /* DateTools.swift */; };
 		028882021E12E83C00E95C1F /* UnitFraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028882011E12E83C00E95C1F /* UnitFraction.swift */; };
 		028882041E12E86500E95C1F /* UnitLoudness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028882031E12E86500E95C1F /* UnitLoudness.swift */; };
+		028882061E12EDA400E95C1F /* MathTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028882051E12EDA400E95C1F /* MathTools.swift */; };
 		02A8CA7B1E09019A0001FBF2 /* OptionalTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A8CA7A1E09019A0001FBF2 /* OptionalTools.swift */; };
 		02B3D67E1DFE771900F3603E /* Digits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3D67D1DFE771900F3603E /* Digits.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		028014681E0DC17000A8A19C /* DateTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTools.swift; path = ../../Sources/DateTools.swift; sourceTree = "<group>"; };
 		028882011E12E83C00E95C1F /* UnitFraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnitFraction.swift; path = ../../Sources/UnitFraction.swift; sourceTree = "<group>"; };
 		028882031E12E86500E95C1F /* UnitLoudness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnitLoudness.swift; path = ../../Sources/UnitLoudness.swift; sourceTree = "<group>"; };
+		028882051E12EDA400E95C1F /* MathTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MathTools.swift; path = ../../Sources/MathTools.swift; sourceTree = "<group>"; };
 		02A8CA7A1E09019A0001FBF2 /* OptionalTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionalTools.swift; path = ../../Sources/OptionalTools.swift; sourceTree = "<group>"; };
 		02B3D67D1DFE771900F3603E /* Digits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Digits.swift; path = ../../Sources/Digits.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				028014681E0DC17000A8A19C /* DateTools.swift */,
+				028882051E12EDA400E95C1F /* MathTools.swift */,
 				02A8CA7A1E09019A0001FBF2 /* OptionalTools.swift */,
 			);
 			name = Helper;
@@ -295,6 +298,7 @@
 				02A8CA7B1E09019A0001FBF2 /* OptionalTools.swift in Sources */,
 				021506001E00A75D000531AD /* CrossProductSequence.swift in Sources */,
 				0217FE181E1100DD005223B5 /* DictionaryTools.swift in Sources */,
+				028882061E12EDA400E95C1F /* MathTools.swift in Sources */,
 				020B31E31DFE7BD000D8B8CF /* ConcatSequences.swift in Sources */,
 				0217FE261E12738E005223B5 /* ClusterTools.swift in Sources */,
 				028882021E12E83C00E95C1F /* UnitFraction.swift in Sources */,
