@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0204DA371E146A4B003A864B /* DateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0204DA361E146A4B003A864B /* DateSequence.swift */; };
+		0206EA0B1E1479D800F655FB /* DateSequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0206EA0A1E1479D800F655FB /* DateSequenceTests.swift */; };
 		020B31E31DFE7BD000D8B8CF /* ConcatSequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020B31E21DFE7BD000D8B8CF /* ConcatSequences.swift */; };
 		021506001E00A75D000531AD /* CrossProductSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021505FF1E00A75D000531AD /* CrossProductSequence.swift */; };
 		0217FE181E1100DD005223B5 /* DictionaryTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217FE171E1100DD005223B5 /* DictionaryTools.swift */; };
@@ -17,12 +19,10 @@
 		0217FE2A1E1291BA005223B5 /* ClusterToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217FE291E1291BA005223B5 /* ClusterToolsTests.swift */; };
 		025435201E0F37AE00538E30 /* ConcatSequencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0254351B1E0F37AE00538E30 /* ConcatSequencesTests.swift */; };
 		025435211E0F37AE00538E30 /* CrossProductSequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0254351C1E0F37AE00538E30 /* CrossProductSequenceTests.swift */; };
-		025435221E0F37AE00538E30 /* DateToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0254351D1E0F37AE00538E30 /* DateToolsTests.swift */; };
 		025435231E0F37AE00538E30 /* DigitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0254351E1E0F37AE00538E30 /* DigitsTests.swift */; };
 		025435241E0F37AE00538E30 /* OptionalToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0254351F1E0F37AE00538E30 /* OptionalToolsTests.swift */; };
 		0270A20E1DFE72C800F3331B /* FoundationTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0270A2041DFE72C700F3331B /* FoundationTools.framework */; };
 		0270A2151DFE72C800F3331B /* FoundationTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 0270A2071DFE72C700F3331B /* FoundationTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		028014691E0DC17000A8A19C /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028014681E0DC17000A8A19C /* DateTools.swift */; };
 		028882021E12E83C00E95C1F /* UnitFraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028882011E12E83C00E95C1F /* UnitFraction.swift */; };
 		028882041E12E86500E95C1F /* UnitLoudness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028882031E12E86500E95C1F /* UnitLoudness.swift */; };
 		028882061E12EDA400E95C1F /* MathTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028882051E12EDA400E95C1F /* MathTools.swift */; };
@@ -41,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0204DA361E146A4B003A864B /* DateSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateSequence.swift; path = ../../Sources/DateSequence.swift; sourceTree = "<group>"; };
+		0206EA0A1E1479D800F655FB /* DateSequenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateSequenceTests.swift; path = ../../Tests/FoundationToolsTests/DateSequenceTests.swift; sourceTree = "<group>"; };
 		020B31E21DFE7BD000D8B8CF /* ConcatSequences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcatSequences.swift; path = ../../Sources/ConcatSequences.swift; sourceTree = "<group>"; };
 		021505FF1E00A75D000531AD /* CrossProductSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrossProductSequence.swift; path = ../../Sources/CrossProductSequence.swift; sourceTree = "<group>"; };
 		0217FE171E1100DD005223B5 /* DictionaryTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryTools.swift; path = ../../Sources/DictionaryTools.swift; sourceTree = "<group>"; };
@@ -51,7 +53,6 @@
 		0217FE291E1291BA005223B5 /* ClusterToolsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClusterToolsTests.swift; path = ../../Tests/FoundationToolsTests/ClusterToolsTests.swift; sourceTree = "<group>"; };
 		0254351B1E0F37AE00538E30 /* ConcatSequencesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcatSequencesTests.swift; path = ../../Tests/FoundationToolsTests/ConcatSequencesTests.swift; sourceTree = "<group>"; };
 		0254351C1E0F37AE00538E30 /* CrossProductSequenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrossProductSequenceTests.swift; path = ../../Tests/FoundationToolsTests/CrossProductSequenceTests.swift; sourceTree = "<group>"; };
-		0254351D1E0F37AE00538E30 /* DateToolsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateToolsTests.swift; path = ../../Tests/FoundationToolsTests/DateToolsTests.swift; sourceTree = "<group>"; };
 		0254351E1E0F37AE00538E30 /* DigitsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DigitsTests.swift; path = ../../Tests/FoundationToolsTests/DigitsTests.swift; sourceTree = "<group>"; };
 		0254351F1E0F37AE00538E30 /* OptionalToolsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionalToolsTests.swift; path = ../../Tests/FoundationToolsTests/OptionalToolsTests.swift; sourceTree = "<group>"; };
 		0270A2041DFE72C700F3331B /* FoundationTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FoundationTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,7 +60,6 @@
 		0270A2081DFE72C700F3331B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0270A20D1DFE72C800F3331B /* FoundationToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoundationToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0270A2141DFE72C800F3331B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		028014681E0DC17000A8A19C /* DateTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTools.swift; path = ../../Sources/DateTools.swift; sourceTree = "<group>"; };
 		028882011E12E83C00E95C1F /* UnitFraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnitFraction.swift; path = ../../Sources/UnitFraction.swift; sourceTree = "<group>"; };
 		028882031E12E86500E95C1F /* UnitLoudness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnitLoudness.swift; path = ../../Sources/UnitLoudness.swift; sourceTree = "<group>"; };
 		028882051E12EDA400E95C1F /* MathTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MathTools.swift; path = ../../Sources/MathTools.swift; sourceTree = "<group>"; };
@@ -89,7 +89,6 @@
 		0217FE191E110142005223B5 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				0254351D1E0F37AE00538E30 /* DateToolsTests.swift */,
 				0254351F1E0F37AE00538E30 /* OptionalToolsTests.swift */,
 			);
 			name = Helper;
@@ -101,6 +100,7 @@
 				0217FE291E1291BA005223B5 /* ClusterToolsTests.swift */,
 				0254351B1E0F37AE00538E30 /* ConcatSequencesTests.swift */,
 				0254351C1E0F37AE00538E30 /* CrossProductSequenceTests.swift */,
+				0206EA0A1E1479D800F655FB /* DateSequenceTests.swift */,
 				0254351E1E0F37AE00538E30 /* DigitsTests.swift */,
 				0217FE1B1E11018E005223B5 /* DictionaryToolsTests.swift */,
 				0217FE231E127036005223B5 /* PeriodicSequenceTests.swift */,
@@ -160,7 +160,6 @@
 		02A8CA791E09016E0001FBF2 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				028014681E0DC17000A8A19C /* DateTools.swift */,
 				028882051E12EDA400E95C1F /* MathTools.swift */,
 				02A8CA7A1E09019A0001FBF2 /* OptionalTools.swift */,
 			);
@@ -173,6 +172,7 @@
 				0217FE251E12738E005223B5 /* ClusterTools.swift */,
 				020B31E21DFE7BD000D8B8CF /* ConcatSequences.swift */,
 				021505FF1E00A75D000531AD /* CrossProductSequence.swift */,
+				0204DA361E146A4B003A864B /* DateSequence.swift */,
 				02B3D67D1DFE771900F3603E /* Digits.swift */,
 				0217FE171E1100DD005223B5 /* DictionaryTools.swift */,
 				0217FE211E12700B005223B5 /* PeriodicSequence.swift */,
@@ -294,7 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				028014691E0DC17000A8A19C /* DateTools.swift in Sources */,
+				0204DA371E146A4B003A864B /* DateSequence.swift in Sources */,
 				02A8CA7B1E09019A0001FBF2 /* OptionalTools.swift in Sources */,
 				021506001E00A75D000531AD /* CrossProductSequence.swift in Sources */,
 				0217FE181E1100DD005223B5 /* DictionaryTools.swift in Sources */,
@@ -314,9 +314,9 @@
 			files = (
 				0217FE2A1E1291BA005223B5 /* ClusterToolsTests.swift in Sources */,
 				0217FE241E127036005223B5 /* PeriodicSequenceTests.swift in Sources */,
-				025435221E0F37AE00538E30 /* DateToolsTests.swift in Sources */,
 				0217FE1C1E11018E005223B5 /* DictionaryToolsTests.swift in Sources */,
 				025435201E0F37AE00538E30 /* ConcatSequencesTests.swift in Sources */,
+				0206EA0B1E1479D800F655FB /* DateSequenceTests.swift in Sources */,
 				025435241E0F37AE00538E30 /* OptionalToolsTests.swift in Sources */,
 				025435211E0F37AE00538E30 /* CrossProductSequenceTests.swift in Sources */,
 				025435231E0F37AE00538E30 /* DigitsTests.swift in Sources */,
