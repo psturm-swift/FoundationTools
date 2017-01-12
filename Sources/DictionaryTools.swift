@@ -22,10 +22,19 @@
 
 import Foundation
 
-public func dictionaryMap<Ks : Hashable, Vs, Kt : Hashable, Vt>(_ dictionary: [Ks:Vs], transform: (Ks, Vs)->(Kt, Vt)) -> [Kt:Vt] {
+public func dictionaryMap<Ks : Hashable, Vs, Kt : Hashable, Vt>(_ dictionary: [Ks:Vs], transform: (Ks, Vs) -> (Kt, Vt)) -> [Kt:Vt] {
     var result: [Kt:Vt] = [:]
     for (key, value) in dictionary {
         let (keyTransformed, valueTransformed) = transform(key, value)
+        result.updateValue(valueTransformed, forKey: keyTransformed)
+    }
+    return result
+}
+
+public func dictionaryMap<Ks : Hashable, Vs, Kt : Hashable, Vt>(_ dictionary: [Ks:Vs], transform: (Ks, Vs) throws -> (Kt, Vt)) throws -> [Kt:Vt] {
+    var result: [Kt:Vt] = [:]
+    for (key, value) in dictionary {
+        let (keyTransformed, valueTransformed) = try transform(key, value)
         result.updateValue(valueTransformed, forKey: keyTransformed)
     }
     return result
@@ -38,6 +47,10 @@ public func dictionaryInverted<K : Hashable, V: Hashable>(_ dictionary: [K:V]) -
 public extension Dictionary {
     func map<K:Hashable, V>(_ transform: (Key, Value)->(K, V)) -> [K:V] {
         return dictionaryMap(self, transform: transform)
+    }
+
+    func map<K:Hashable, V>(_ transform: (Key, Value) throws -> (K, V)) throws -> [K:V] {
+        return try dictionaryMap(self, transform: transform)
     }
 }
 
