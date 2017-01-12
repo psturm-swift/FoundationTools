@@ -36,11 +36,7 @@ public func dictionaryInverted<K : Hashable, V: Hashable>(_ dictionary: [K:V]) -
 }
 
 public extension Dictionary {
-    func map<K:Hashable, V>(_ transform: (Key, Value)->(K, V)) -> [K:V] {
-        return dictionaryMap(self, transform: transform)
-    }
-
-    func map<K:Hashable, V>(_ transform: (Key, Value) throws -> (K, V)) throws -> [K:V] {
+    func map<K:Hashable, V>(_ transform: (Key, Value) throws -> (K, V)) rethrows -> [K:V] {
         return try dictionaryMap(self, transform: transform)
     }
 }
