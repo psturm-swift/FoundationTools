@@ -22,16 +22,7 @@
 
 import Foundation
 
-public func dictionaryMap<Ks : Hashable, Vs, Kt : Hashable, Vt>(_ dictionary: [Ks:Vs], transform: (Ks, Vs) -> (Kt, Vt)) -> [Kt:Vt] {
-    var result: [Kt:Vt] = [:]
-    for (key, value) in dictionary {
-        let (keyTransformed, valueTransformed) = transform(key, value)
-        result.updateValue(valueTransformed, forKey: keyTransformed)
-    }
-    return result
-}
-
-public func dictionaryMap<Ks : Hashable, Vs, Kt : Hashable, Vt>(_ dictionary: [Ks:Vs], transform: (Ks, Vs) throws -> (Kt, Vt)) throws -> [Kt:Vt] {
+public func dictionaryMap<Ks : Hashable, Vs, Kt : Hashable, Vt>(_ dictionary: [Ks:Vs], transform: (Ks, Vs) throws -> (Kt, Vt)) rethrows -> [Kt:Vt] {
     var result: [Kt:Vt] = [:]
     for (key, value) in dictionary {
         let (keyTransformed, valueTransformed) = try transform(key, value)
