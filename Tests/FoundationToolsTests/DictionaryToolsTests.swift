@@ -49,10 +49,19 @@ class DictionaryToolsTests: XCTestCase {
         XCTAssertEqual(dictionary.isEmpty, invertedDictionary.isEmpty)
     }
     
+    func testIfIntegerValuesOfADictionaryCanBeMappedToStrings() {
+        let input: [Int: Int] = [ 1 : 10, 2 : 20, 3 : 30, 4 : 40 ]
+        let expected: [Int: String] = [ 1 : "10", 2 : "20", 3 : "30", 4 : "40" ]
+        let actual = input.mapValues { "\($0)"}
+        
+        XCTAssertEqual(expected, actual)
+    }
+    
     static var allTests : [(String, (DictionaryToolsTests) -> () throws -> Void)] {
         return [
             ("testIfANoneEmptyDictionaryCanBeMappedIntoDifferentOneByChangingRolesBetweenValueAndKey", testIfANoneEmptyDictionaryCanBeMappedIntoDifferentOneByChangingRolesBetweenValueAndKey),
-            ("testIfAnEmptyDictionaryMapsToAnEmptyDictionary", testIfAnEmptyDictionaryMapsToAnEmptyDictionary)
+            ("testIfAnEmptyDictionaryMapsToAnEmptyDictionary", testIfAnEmptyDictionaryMapsToAnEmptyDictionary),
+            ("testIfIntegerValuesOfADictionaryCanBeMappedToStrings", testIfIntegerValuesOfADictionaryCanBeMappedToStrings)
         ]
     }
 }

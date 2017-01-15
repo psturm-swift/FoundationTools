@@ -36,6 +36,10 @@ fileprivate func _map<K: Hashable, Vs, Vt>(dictionary: [K:Vs], transform: (Vs) t
     return buildDictionary(from: try dictionary.lazy.map { ($0.0, try transform($0.1)) })
 }
 
+public func map<K: Hashable, Vs, Vt>(dictionary: [K:Vs], transform: (Vs) throws -> (Vt)) rethrows -> [K:Vt] {
+    return try _map(dictionary: dictionary, transform: transform)
+}
+
 fileprivate func _map<Ks : Hashable, Vs, Kt : Hashable, Vt>(dictionary: [Ks:Vs], transform: (Ks, Vs) throws -> (Kt, Vt)) rethrows -> [Kt:Vt] {
     return buildDictionary(from: try dictionary.lazy.map { item in try transform(item.0, item.1) })
 }
@@ -50,6 +54,10 @@ public func invert<K : Hashable, V: Hashable>(dictionary: [K:V]) -> [V:K] {
 
 public extension Dictionary where Value: Hashable {
     func mapDictionary<KeyT: Hashable, ValueT>(_ transform: (Key, Value) throws -> (KeyT, ValueT)) rethrows -> [KeyT:ValueT] {
+        return try _map(dictionary: self, transform: transform)
+    }
+    
+    func mapValues<ValueT>(_ transform: (Value) throws -> (ValueT)) rethrows -> [Key:ValueT] {
         return try _map(dictionary: self, transform: transform)
     }
     
