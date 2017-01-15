@@ -44,7 +44,7 @@ class DictionaryToolsTests: XCTestCase {
 
     func testIfAnEmptyDictionaryMapsToAnEmptyDictionary() {
         let dictionary: [String: Int] = [:]
-        let invertedDictionary = dictionary.map { (key, value) in (value, key) }
+        let invertedDictionary = dictionary.mapDictionary { (key, value) in (value, key) }
         
         XCTAssertEqual(dictionary.isEmpty, invertedDictionary.isEmpty)
     }

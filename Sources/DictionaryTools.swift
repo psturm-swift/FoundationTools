@@ -22,27 +22,38 @@
 
 import Foundation
 
-public func dictionaryMap<Ks : Hashable, Vs, Kt : Hashable, Vt>(_ dictionary: [Ks:Vs], transform: (Ks, Vs) throws -> (Kt, Vt)) rethrows -> [Kt:Vt] {
-    var result: [Kt:Vt] = [:]
-    for (key, value) in dictionary {
-        let (keyTransformed, valueTransformed) = try transform(key, value)
-        result.updateValue(valueTransformed, forKey: keyTransformed)
+public func buildDictionary<K : Hashable, V, S: Sequence>(from sequence: S) -> [K:V] where S.Iterator.Element == (K, V) {
+    var dictionary: [K:V] = [:]
+    
+    for (key, value) in sequence {
+        dictionary.updateValue(value, forKey: key)
     }
-    return result
+    
+    return dictionary
 }
 
-public func dictionaryInverted<K : Hashable, V: Hashable>(_ dictionary: [K:V]) -> [V:K] {
-    return dictionaryMap(dictionary) { (key, value) in (value, key) }
+fileprivate func _map<K: Hashable, Vs, Vt>(dictionary: [K:Vs], transform: (Vs) throws -> (Vt)) rethrows -> [K:Vt] {
+    return buildDictionary(from: try dictionary.lazy.map { ($0.0, try transform($0.1)) })
 }
 
-public extension Dictionary {
-    func map<K:Hashable, V>(_ transform: (Key, Value) throws -> (K, V)) rethrows -> [K:V] {
-        return try dictionaryMap(self, transform: transform)
-    }
+fileprivate func _map<Ks : Hashable, Vs, Kt : Hashable, Vt>(dictionary: [Ks:Vs], transform: (Ks, Vs) throws -> (Kt, Vt)) rethrows -> [Kt:Vt] {
+    return buildDictionary(from: try dictionary.lazy.map { item in try transform(item.0, item.1) })
+}
+
+public func map<Ks : Hashable, Vs, Kt : Hashable, Vt>(dictionary: [Ks:Vs], transform: (Ks, Vs) throws -> (Kt, Vt)) rethrows -> [Kt:Vt] {
+    return try _map(dictionary: dictionary, transform: transform)
+}
+
+public func invert<K : Hashable, V: Hashable>(dictionary: [K:V]) -> [V:K] {
+    return map(dictionary: dictionary) { (key, value) in (value, key) }
 }
 
 public extension Dictionary where Value: Hashable {
+    func mapDictionary<KeyT: Hashable, ValueT>(_ transform: (Key, Value) throws -> (KeyT, ValueT)) rethrows -> [KeyT:ValueT] {
+        return try _map(dictionary: self, transform: transform)
+    }
+    
     func inverted() -> [Value:Key] {
-        return dictionaryInverted(self)
+        return invert(dictionary: self)
     }
 }
