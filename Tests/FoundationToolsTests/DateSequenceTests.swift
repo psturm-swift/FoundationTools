@@ -39,6 +39,7 @@ class DateSequenceTests: XCTestCase {
         guard let start = dateFormatter.date(from: "2017-03-26 00:00:00") else { XCTAssertTrue(false); return}
         guard let end = dateFormatter.date(from: "2017-03-26 12:00:00") else { XCTAssertTrue(false); return}
         
+        
         let expected = [
             "2017-03-26 00:00:00",
             "2017-03-26 04:00:00",
@@ -49,14 +50,23 @@ class DateSequenceTests: XCTestCase {
         ]
         
         let actual =
-            dateSequence(start: start, end: end, matching: DateComponents(minute: 0))
+            dateSequence(start: start, end: end, matching: DateComponents(minute: 0), calendar: self.calendar)
             .filter { calendar.component(.hour, from: $0) % 2 == 0 }
             .map { dateFormatter.string(from: $0) }
 
         XCTAssertEqual(expected, actual)
     }
     
-    let calendar = Calendar.current
+    let calendar: Calendar = { () -> Calendar in
+        var calendar = Calendar(identifier: .gregorian)
+        if let timeZone = TimeZone(identifier: "Europe/Berlin") {
+            calendar.timeZone = timeZone
+        }
+        else {
+            fatalError("Cannot set timezone 'Europe/Berlin'")
+        }
+        return calendar
+    }()
     lazy var dateFormatter: DateFormatter = { () -> DateFormatter in
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss";
