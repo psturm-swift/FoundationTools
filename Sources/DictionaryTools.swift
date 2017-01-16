@@ -52,7 +52,7 @@ public func invert<K : Hashable, V: Hashable>(dictionary: [K:V]) -> [V:K] {
     return map(dictionary: dictionary) { (key, value) in (value, key) }
 }
 
-public extension Dictionary where Value: Hashable {
+public extension Dictionary {
     func mapDictionary<KeyT: Hashable, ValueT>(_ transform: (Key, Value) throws -> (KeyT, ValueT)) rethrows -> [KeyT:ValueT] {
         return try _map(dictionary: self, transform: transform)
     }
@@ -60,7 +60,9 @@ public extension Dictionary where Value: Hashable {
     func mapValues<ValueT>(_ transform: (Value) throws -> (ValueT)) rethrows -> [Key:ValueT] {
         return try _map(dictionary: self, transform: transform)
     }
-    
+}
+
+public extension Dictionary where Value: Hashable {
     func inverted() -> [Value:Key] {
         return invert(dictionary: self)
     }
