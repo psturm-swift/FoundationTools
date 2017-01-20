@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-s.name             = 'FoundationTools'
+  s.name             = 'FoundationTools'
   s.version          = '0.1'
   s.summary          = 'FoundationTools is a collection of helper classes and function defined on the Swift Foundation Framework'
   s.description      = <<-DESC
