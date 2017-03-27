@@ -22,27 +22,38 @@
 
 import Foundation
 
-public typealias ConcatSequence<S: Sequence, T: Sequence> = UnfoldSequence<S.Iterator.Element, (S.Iterator, T.Iterator)>
+public func clusterId<T>(for value: T, in clusters: [[T]], predicate: (T,T)->Bool) -> Int? {
+    return clusters.index(where: {
+        clusterElements in
+        clusterElements.contains(where: {
+            predicate($0, value)
+        })
+    })
+}
 
-public func concat<S: Sequence, T: Sequence>(_ lhs: S, _ rhs: T) -> ConcatSequence<S, T>
-    where S.Iterator.Element==T.Iterator.Element
-{
-    let nextElement = {
-        (state: inout (S.Iterator, T.Iterator)) -> S.Iterator.Element? in
-        return state.0.next() ?? state.1.next()
+public func simpleClustering<S: Sequence>(sequence: S, similarity: (S.Iterator.Element, S.Iterator.Element)->Bool) -> [[S.Iterator.Element]] {
+    var clusters: [[S.Iterator.Element]] = []
+    
+    for value in sequence {
+        if let clusterId = clusterId(for: value, in: clusters, predicate: similarity) {
+            clusters[clusterId].append(value)
+        }
+        else {
+            clusters.append([value])
+        }
+    }
+
+    return clusters
+}
+
+public func thinOut<S: Sequence>(sequence: S, similarity: (S.Iterator.Element, S.Iterator.Element)->Bool) -> [S.Iterator.Element] {
+    var result: [S.Iterator.Element] = []
+    
+    for value in sequence {
+        if !result.contains(where: { similarity($0, value) }) {
+            result.append(value)
+        }
     }
     
-    return sequence(state: (lhs.makeIterator(), rhs.makeIterator()), next: nextElement)
-}
-
-precedencegroup RangeAdditionPrecedence {
-    associativity: left
-    lowerThan: RangeFormationPrecedence
-}
-
-infix operator <+>: RangeAdditionPrecedence
-public func <+><S: Sequence, T: Sequence>(lhs: S, rhs: T) -> ConcatSequence<S, T>
-    where S.Iterator.Element==T.Iterator.Element
-{
-    return concat(lhs, rhs)
+    return result
 }

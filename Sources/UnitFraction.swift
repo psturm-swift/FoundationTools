@@ -22,27 +22,17 @@
 
 import Foundation
 
-public typealias ConcatSequence<S: Sequence, T: Sequence> = UnfoldSequence<S.Iterator.Element, (S.Iterator, T.Iterator)>
-
-public func concat<S: Sequence, T: Sequence>(_ lhs: S, _ rhs: T) -> ConcatSequence<S, T>
-    where S.Iterator.Element==T.Iterator.Element
-{
-    let nextElement = {
-        (state: inout (S.Iterator, T.Iterator)) -> S.Iterator.Element? in
-        return state.0.next() ?? state.1.next()
-    }
+@available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
+public class UnitFraction: Dimension {
+    public static let percent = UnitFraction(
+        symbol: "%",
+        converter: UnitConverterLinear(coefficient: 1.0))
     
-    return sequence(state: (lhs.makeIterator(), rhs.makeIterator()), next: nextElement)
-}
-
-precedencegroup RangeAdditionPrecedence {
-    associativity: left
-    lowerThan: RangeFormationPrecedence
-}
-
-infix operator <+>: RangeAdditionPrecedence
-public func <+><S: Sequence, T: Sequence>(lhs: S, rhs: T) -> ConcatSequence<S, T>
-    where S.Iterator.Element==T.Iterator.Element
-{
-    return concat(lhs, rhs)
+    public static let permille = UnitFraction(
+        symbol: "\u{2030}",
+        converter: UnitConverterLinear(coefficient: 1000.0))
+    
+    public override static func baseUnit() -> UnitFraction {
+        return UnitFraction.percent
+    }
 }

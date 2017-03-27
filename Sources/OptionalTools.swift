@@ -22,27 +22,16 @@
 
 import Foundation
 
-public typealias ConcatSequence<S: Sequence, T: Sequence> = UnfoldSequence<S.Iterator.Element, (S.Iterator, T.Iterator)>
-
-public func concat<S: Sequence, T: Sequence>(_ lhs: S, _ rhs: T) -> ConcatSequence<S, T>
-    where S.Iterator.Element==T.Iterator.Element
-{
-    let nextElement = {
-        (state: inout (S.Iterator, T.Iterator)) -> S.Iterator.Element? in
-        return state.0.next() ?? state.1.next()
-    }
-    
-    return sequence(state: (lhs.makeIterator(), rhs.makeIterator()), next: nextElement)
+public func optionalApply<T>(_ a: T?, _ b: T?, _ op: (T,T)->T) -> T? {
+    guard let _a = a else { return b }
+    guard let _b = b else { return a }
+    return op(_a, _b)
 }
 
-precedencegroup RangeAdditionPrecedence {
-    associativity: left
-    lowerThan: RangeFormationPrecedence
+public func min<T: Comparable>(_ a: T?, _ b: T?) -> T? {
+    return optionalApply(a, b, min)
 }
 
-infix operator <+>: RangeAdditionPrecedence
-public func <+><S: Sequence, T: Sequence>(lhs: S, rhs: T) -> ConcatSequence<S, T>
-    where S.Iterator.Element==T.Iterator.Element
-{
-    return concat(lhs, rhs)
+public func max<T: Comparable>(_ a: T?, _ b: T?) -> T? {
+    return optionalApply(a, b, max)
 }

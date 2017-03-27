@@ -22,27 +22,10 @@
 
 import Foundation
 
-public typealias ConcatSequence<S: Sequence, T: Sequence> = UnfoldSequence<S.Iterator.Element, (S.Iterator, T.Iterator)>
-
-public func concat<S: Sequence, T: Sequence>(_ lhs: S, _ rhs: T) -> ConcatSequence<S, T>
-    where S.Iterator.Element==T.Iterator.Element
-{
-    let nextElement = {
-        (state: inout (S.Iterator, T.Iterator)) -> S.Iterator.Element? in
-        return state.0.next() ?? state.1.next()
-    }
-    
-    return sequence(state: (lhs.makeIterator(), rhs.makeIterator()), next: nextElement)
+public func smallestValue(divisibleBy divisor: Int, largerThan minValue: Int) -> Int {
+    return minValue + (divisor - (minValue % divisor))
 }
 
-precedencegroup RangeAdditionPrecedence {
-    associativity: left
-    lowerThan: RangeFormationPrecedence
-}
-
-infix operator <+>: RangeAdditionPrecedence
-public func <+><S: Sequence, T: Sequence>(lhs: S, rhs: T) -> ConcatSequence<S, T>
-    where S.Iterator.Element==T.Iterator.Element
-{
-    return concat(lhs, rhs)
+public func smallestValue(divisibleBy divisor: Int, largerThanOrEqualTo minValue: Int) -> Int {
+    return minValue % divisor == 0 ? minValue : smallestValue(divisibleBy: divisor, largerThan: minValue)
 }

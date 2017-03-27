@@ -22,27 +22,33 @@
 
 import Foundation
 
-public typealias ConcatSequence<S: Sequence, T: Sequence> = UnfoldSequence<S.Iterator.Element, (S.Iterator, T.Iterator)>
+public struct PeriodicIterator<S: Sequence>: IteratorProtocol {
+    public typealias Element = S.Iterator.Element
 
-public func concat<S: Sequence, T: Sequence>(_ lhs: S, _ rhs: T) -> ConcatSequence<S, T>
-    where S.Iterator.Element==T.Iterator.Element
-{
-    let nextElement = {
-        (state: inout (S.Iterator, T.Iterator)) -> S.Iterator.Element? in
-        return state.0.next() ?? state.1.next()
+    public init(base: S) {
+        self.makeIterator = { base.makeIterator() }
+        self.currentIterator = makeIterator()
     }
     
-    return sequence(state: (lhs.makeIterator(), rhs.makeIterator()), next: nextElement)
+    public mutating func next() -> S.Iterator.Element? {
+        if let nextElement = currentIterator.next() {
+            return nextElement
+        }
+        else {
+            currentIterator = makeIterator()
+            guard let nextElement = currentIterator.next() else { return nil }
+            return nextElement
+        }
+    }
+    
+    private var currentIterator: S.Iterator
+    private let makeIterator: ()->S.Iterator
 }
 
-precedencegroup RangeAdditionPrecedence {
-    associativity: left
-    lowerThan: RangeFormationPrecedence
+public func periodicSequence<S: Sequence>(base: S) -> AnySequence<S.Iterator.Element> {
+    return AnySequence({ PeriodicIterator(base: base) })
 }
 
-infix operator <+>: RangeAdditionPrecedence
-public func <+><S: Sequence, T: Sequence>(lhs: S, rhs: T) -> ConcatSequence<S, T>
-    where S.Iterator.Element==T.Iterator.Element
-{
-    return concat(lhs, rhs)
+public func periodicSequence<T>(arrayLiteral elements: T...) -> AnySequence<T> {
+    return AnySequence({ PeriodicIterator(base: elements) })
 }

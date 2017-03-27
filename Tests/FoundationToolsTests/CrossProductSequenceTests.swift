@@ -18,13 +18,13 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
-*/
+ */
 
 import XCTest
 @testable import FoundationTools
 
-class ConcatSequencesTests: XCTestCase {
-
+class CrossProductSequenceTests: XCTestCase {
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -34,34 +34,36 @@ class ConcatSequencesTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-
-    func testTwoArraysCanBeConcatenatedLazily() {
-        let a = [4, 5, 6]
-        let b = [1, 2]
-        
-        XCTAssertEqual(a + b, Array(a <+> b))
+    
+    
+    func equal<S: Sequence, T: Sequence>(_ s: S, _ t: T) -> Bool
+        where S.Iterator.Element==(Int,Int), T.Iterator.Element==S.Iterator.Element
+    {
+        let arrayS = Array(s)
+        let arrayT = Array(t)
+        guard arrayS.count == arrayT.count else { return false }
+        for (itemS, itemT) in zip(arrayS, arrayT) {
+            guard itemS.0 == itemT.0 && itemS.1 == itemT.1 else { return false }
+        }
+        return true
     }
     
-    func testTwoArraysCanBeConcatenatedLazilyIfOneArrayIsEmpty() {
+    func testCrossProducOfTwoArrays() {
         let a = [4, 5, 6]
         let b = [1, 2]
-        let empty: [Int] = []
-        
-        XCTAssertEqual(a + empty, Array(a <+> empty))
-        XCTAssertEqual(empty + b, Array(empty <+> b))
-        XCTAssertEqual(empty, Array(empty <+> empty))
+        XCTAssertTrue(equal([(4, 1), (4, 2), (5, 1), (5, 2), (6, 1), (6, 2)], a <*> b))
     }
     
-    func testConcatenationCanBeReused() {
-        let a = [4, 5, 6]
-        let b = [1, 2]
-        let c = a <+> b
-        
-        XCTAssertEqual(a + b, Array(c))
-        XCTAssertEqual(a + b, Array(c))
+    func testConcatOperatorHasHigherPrecedenceAsCrossProductOperator() {
+        let actual = 1...2 <*> 4...5 <+> 10...11 <*> 40...41
+        let expected = [(1,4),(1,5),(2,4),(2,5),(10,40),(10,41),(11,40),(11,41)]
+        XCTAssertTrue(equal(expected, actual))
     }
     
-    func testRangesCanBeConcatenatedDirectly() {
-        XCTAssertEqual(Array(1...10), Array(1...4 <+> 5...10))
+    static var allTests : [(String, (CrossProductSequenceTests) -> () throws -> Void)] {
+        return [
+            ("testCrossProducOfTwoArrays", testCrossProducOfTwoArrays),
+            ("testConcatOperatorHasHigherPrecedenceAsCrossProductOperator", testConcatOperatorHasHigherPrecedenceAsCrossProductOperator)
+        ]
     }
 }
