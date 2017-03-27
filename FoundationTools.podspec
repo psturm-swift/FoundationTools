@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version          = '0.1'
   s.summary          = 'FoundationTools is a collection of helper classes and function defined on the Swift Foundation Framework'
   s.description      = <<-DESC
-  FoundationTools is a collection of helper classes and function defined on the Swift Foundation Framework
+  FoundationTools is a collection of small helper classes and function defined on the Swift Foundation Framework which might be reused in different use cases. 
   DESC
 
   s.homepage         = 'https://github.com/psturm-swift/FoundationTools'
